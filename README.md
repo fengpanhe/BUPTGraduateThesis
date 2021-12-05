@@ -1,3 +1,42 @@
+北京邮电大学毕业论文模版
+==================
+
+## 为 2021 届计算机专硕专业毕业论文格式做了一些修改
+
+1. 去掉图片索引列表和图表列表的方法
+
+在文件 ```install/buptgraduatethesis.dtx``` 里，注释掉以下两行：
+```
+  %\listoftables
+  %\listoffigures
+
+  % \bupt@front@ecover
+```
+
+2. 基础配置：
+
+在 `bare_thesis.tex` 中
+```
+\documentclass[%
+  degree=pmaster,% pmaster 是专硕，master 是学硕
+  classlevel=open,%
+  mathfont=mathptmx,%
+  dedication=false,%
+  chapbib=false,%
+  finish=print,% peerreview 为 加密版 print 为打印版
+  driver=xetex]{buptgraduatethesis}
+```
+
+3. 编译生成
+
+参考本文后面的 Quick Help
+
+## 统计字数
+
+```
+texcount -ch -inc -incbib -v -sum bare_thesis.tex
+```
+
 Version
 ==================
 当前版本v7.2，托管于GitHub，支持Windows、Linux和OSX平台。该版本可以在项目主页直接下载ZIP压缩包获得，也可以通过如下git命令获得：

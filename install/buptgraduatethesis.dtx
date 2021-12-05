@@ -1592,6 +1592,7 @@
 \setcounter{tocdepth}{2}
 \renewcommand\tableofcontents{%
   \bupt@chapter*[]{\contentsname}
+  \addcontentsline{toc}{chapter}{目\hspace{1em}录}
   \normalsize\@starttoc{toc}}
 \def\bupt@toc@font{}%{\bfseries}%sffamily
 \def\@tocrmarg{2em}
@@ -1861,7 +1862,7 @@
   \def\@oddhead{%
     \vbox to\headheight{%
       \hb@xt@\textwidth{%
-        \xiaowu\song\hfill\leftmark%
+        \hfil\xiaowu\song\leftmark\hfil
       }%
       \vskip3pt\hbox{%
         \vrule width\textwidth height0.4pt depth0pt
@@ -1871,7 +1872,7 @@
   \def\@evenhead{%
     \vbox to\headheight{%
       \hb@xt@\textwidth{%
-        \xiaowu\song\bupt@page@head\hfill
+      \hfil\xiaowu\song\bupt@page@head\hfil
       }%
       \vskip3pt\hbox{%
         \vrule width\textwidth height0.4pt depth0pt
@@ -1886,7 +1887,7 @@
   \def\@oddhead{%
     \vbox to\headheight{%
       \hb@xt@\textwidth{%
-        \xiaowu\song\hfill\bupt@label@tableofpublications%
+      \hfil\xiaowu\song\bupt@label@tableofpublications\hfil%
       }%
       \vskip3pt\hbox{%
         \vrule width\textwidth height0.4pt depth0pt
@@ -1896,7 +1897,7 @@
   \def\@evenhead{%
     \vbox to\headheight{%
       \hb@xt@\textwidth{%
-        \xiaowu\song\bupt@page@head\hfill
+        \hfil\xiaowu\song\bupt@page@head\hfil
       }%
       \vskip3pt\hbox{%
         \vrule width\textwidth height0.4pt depth0pt
@@ -2274,8 +2275,16 @@
         [-3pt] \cline{2-2} \\
         \bupt@label@esupervisor\bupt@title@esep & {\hfill\bupt@hide{\bupt@meta@esupervisor}\hfill} \\
         [-3pt] \cline{2-2} \\
-        \bupt@label@edepartment\bupt@title@esep & {\hfill\bupt@meta@edepartment\hfill} \\
-        [-3pt] \cline{2-2} \\
+        %\bupt@label@edepartment\bupt@title@esep & {\hfill\bupt@meta@edepartment\hfill} \\
+        %[-3pt] \cline{2-2} \\
+        \bupt@label@edepartment\bupt@title@esep &  %
+        \parbox[t]{100mm}{%
+          \centering%
+          \bupt@meta@edepartment
+        }%
+        \\
+        [-17pt] \cline{2-2} \\
+        [-0pt] \cline{2-2} \\
       \end{tabular}
     \end{minipage}\\[1cm]
     \begin{minipage}[t]{\textwidth}%日期
@@ -2456,8 +2465,8 @@
   \bupt@makeabstract
   \let\@tabular\bupt@tabular%
   \tableofcontents
-  \listoftables
-  \listoffigures
+  %\listoftables
+  %\listoffigures
 }
 %% 生成中英文摘要页
 \newcommand{\bupt@makeabstract}{%
@@ -2477,6 +2486,7 @@
     \setbox0=\hbox{{\hei \bupt@label@ckeywords}}
     \noindent\hangindent\wd0\hangafter1\box0\bupt@meta@ckeywords
   }
+  \addcontentsline{toc}{chapter}{摘 \hspace{1em} 要}
   \bupt@chapter*[]%
   {\bupt@label@eabstract} % no tocline
   [\xiaosan]
@@ -2491,6 +2501,7 @@
     \setbox0=\hbox{\textbf{KEY WORDS:\enskip}}
     \noindent\hangindent\wd0\hangafter1\box0\bupt@meta@ekeywords
   }
+  \addcontentsline{toc}{chapter}{ABSTRACT}
 }
 %</cls>
 %<*cfg>
